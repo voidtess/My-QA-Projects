@@ -45,6 +45,15 @@ If your tests require a specific driver, ensure the driver executable (chromedri
 - Add GitHub Actions CI (run `mvn test`) and publish results/HTML reports.
 - Add test reports (Surefire, ReportNG, Allure) and include a link or artifact.
 
+## Running tests without installing Maven or IntelliJ
+If you don't want to install anything locally, run tests using GitHub Actions (no local installs required):
+
+1. Push your changes to GitHub (any branch) and open the repository page.
+2. Go to the Actions tab → select the "CI" workflow → click "Run workflow" (or use the recent workflow run). The workflow uses JDK 26 and runs `mvn test` in GitHub's cloud.
+3. After the run completes, open the workflow run and download the "surefire-reports" artifact to view test results and reports.
+
+If you'd rather run tests locally without installing Maven, Docker can be used (requires Docker installed). I can add a Dockerfile and a small run script if you want.
+
 ## Contact
 Repository owner: voidtess
 
