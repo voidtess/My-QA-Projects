@@ -54,5 +54,7 @@ public class Alerts {
         driver.findElement(By.id("modal-input")).sendKeys("something...");
         driver.findElement(By.id("modal-confirm-btn")).click();
         System.out.println("Modal Result: " + driver.findElement(By.id("modal-result")).getText());
+
+        driver.quit();
     }
 }
