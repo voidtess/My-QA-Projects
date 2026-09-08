@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Iframe {
+public class Iframes {
 
     private WebDriver driver;
     private WebDriverWait wait;

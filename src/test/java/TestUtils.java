@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
-import java.sql.Driver;
 import java.time.Duration;
 
 public class TestUtils {
@@ -21,14 +20,6 @@ public class TestUtils {
 
     public static void clickLinkByText(WebDriver driver, String linkText) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.linkText(linkText))).click();
-    }
-
-    public static void webDriverWait(WebDriver driver, int seconds) {
-        new WebDriverWait(driver, Duration.ofSeconds(seconds));
-    }
-
-    public static void webDriverWait(WebDriver driver, int seconds, By locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(seconds)).until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 }
 

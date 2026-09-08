@@ -12,7 +12,6 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class DragAndDrop {
     private WebDriver driver;
@@ -48,8 +47,8 @@ public class DragAndDrop {
         List<WebElement> boxes = driver.findElements(By.cssSelector("#simple-source-pool .draggable-item")); //used to get all boxes at first
         WebElement target1 = findElement("drop-target-1");
 //      action.dragAndDrop(boxes, target1).perform(); commented out to use a loop to drag and drop all boxes
-        while (boxes.size() > 0) {
-            action.dragAndDrop(boxes.get(0), target1).perform();
+        while (boxes.isEmpty()) {
+            action.dragAndDrop(boxes.getFirst(), target1).perform();
             Thread.sleep(1000);
             boxes = driver.findElements(By.cssSelector("#simple-source-pool .draggable-item")); //used to update the list of boxes after DnD loop
         }
@@ -61,16 +60,16 @@ public class DragAndDrop {
     public void kanbanBoards() throws InterruptedException {
         List<WebElement> toDoCards = driver.findElements(By.cssSelector("#kanban-todo .kanban-card"));
         WebElement inProgressColumn = findElement("kanban-inprogress");
-        while (toDoCards.size() > 0) {
-            action.dragAndDrop(toDoCards.get(0), inProgressColumn).perform();
+        while (toDoCards.isEmpty()) {
+            action.dragAndDrop(toDoCards.getFirst(), inProgressColumn).perform();
             Thread.sleep(400);
             toDoCards = driver.findElements(By.cssSelector("#kanban-todo .kanban-card"));
         }
 
         List<WebElement> inProgressCards = driver.findElements(By.cssSelector("#kanban-inprogress .kanban-card"));
         WebElement doneColumn = findElement("kanban-done");
-        while (inProgressCards.size() > 0) {
-            action.dragAndDrop(inProgressCards.get(0), doneColumn).perform();
+        while (inProgressCards.isEmpty()) {
+            action.dragAndDrop(inProgressCards.getFirst(), doneColumn).perform();
             Thread.sleep(400);
             inProgressCards = driver.findElements(By.cssSelector("#kanban-inprogress .kanban-card"));
         }
