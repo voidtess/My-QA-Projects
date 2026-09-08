@@ -21,7 +21,7 @@ public class DynamicElements {
     public void setup() {
         driver = TestUtils.start("src/test/resources/AutoProjectFinal/index.html");
         TestUtils.clickLinkByText(driver, "Dynamic Elements");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @AfterMethod
@@ -60,7 +60,7 @@ public class DynamicElements {
         WebElement toggleButton = driver.findElement(By.id("toggle-element-btn"));
 
         // first toggle
-        boolean currentlyVisible = driver.findElements(boxLocator).size() > 0 && driver.findElement(boxLocator).isDisplayed();
+        boolean currentlyVisible = driver.findElements(boxLocator).isEmpty() && driver.findElement(boxLocator).isDisplayed();
         // size() > 0 shows that the element exists in the DOM, "&&" returns true if both conditions are true, false otherwise
         toggleButton.click();
         if (currentlyVisible) {
@@ -68,7 +68,7 @@ public class DynamicElements {
         } else {
             wait.until(ExpectedConditions.visibilityOfElementLocated(boxLocator));
         }
-        boolean nowVisible = driver.findElements(boxLocator).size() > 0 && driver.findElement(boxLocator).isDisplayed();
+        boolean nowVisible = driver.findElements(boxLocator).isEmpty() && driver.findElement(boxLocator).isDisplayed();
         System.out.println("Element is " + (nowVisible ? "shown" : "hidden") + " after first toggle");
 
         // second toggle
@@ -79,7 +79,7 @@ public class DynamicElements {
         } else {
             wait.until(ExpectedConditions.visibilityOfElementLocated(boxLocator));
         }
-        nowVisible = driver.findElements(boxLocator).size() > 0 && driver.findElement(boxLocator).isDisplayed();
+        nowVisible = driver.findElements(boxLocator).isEmpty() && driver.findElement(boxLocator).isDisplayed();
         System.out.println("Element is " + (nowVisible ? "shown" : "hidden") + " after second toggle");
         // nowVisible ? is a ternary operator that returns "shown" if nowVisible is true, and "hidden" if nowVisible is false
         // there are safer ways to check if an element is visible, but this is a simple way to do it just for experience
@@ -87,7 +87,7 @@ public class DynamicElements {
     }
 
     @Test
-    public void delayedElement() throws InterruptedException {
+    public void delayedElement() {
         By delayedBoxLocator = By.id("delayed-element");
 
         driver.findElement(By.id("load-delayed-btn")).click();
@@ -155,7 +155,7 @@ public class DynamicElements {
             button.click();
             String text = d.findElement(textLocator).getText();
             return text.contains("Scheduled");
-        });;
+        });
         System.out.println("Message: " + driver.findElement(textLocator).getText() + " is successfully found");
     }
 

@@ -33,7 +33,7 @@ public class Dropdown {
         selectCity.selectByValue("cairo");
 
         Select selectSkills = new Select(driver.findElement(By.cssSelector("[name=skills]")));
-        List<WebElement> optionsSkills = selectSkills.getOptions();
+//        List<WebElement> optionsSkills = selectSkills.getOptions();
 //      for (int index = 0; index < optionsSkills.size(); index++) { //used for looking at options for selectByIndex
 //            System.out.println("Options " + index + ": " + optionsSkills.get(index).getText());
 //        }
