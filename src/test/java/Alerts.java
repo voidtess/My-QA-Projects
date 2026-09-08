@@ -13,7 +13,7 @@ public class Alerts {
 
     @Test
     public void Alert() {
-        WebDriver driver = new FirefoxDriver();
+        WebDriver driver = new ChromeDriver();
         File website = new File("src/test/resources/AutoProjectFinal/index.html");
         driver.get(website.toURI().toString());
         driver.findElement(By.partialLinkText("Alerts")).click();

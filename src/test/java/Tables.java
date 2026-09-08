@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
@@ -12,7 +13,7 @@ public class Tables {
 
     @Test
     public void tableTest() {
-        WebDriver driver = new FirefoxDriver();
+        WebDriver driver = new ChromeDriver();
         File website = new File("src/test/resources/AutoProjectFinal/index.html");
         driver.get(website.toURI().toString());
         driver.manage().window().maximize();

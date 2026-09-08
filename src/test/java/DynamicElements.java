@@ -32,13 +32,7 @@ public class DynamicElements {
 
     @Test
     public void hiddenElement() {
-        WebDriver driver = new FirefoxDriver();
-        File website = new File("src/test/resources/AutoProjectFinal/index.html");
-        driver.get(website.toURI().toString());
-        driver.findElement(By.linkText("Dynamic Elements")).click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // wait for up to 10 seconds for the element to be visible
-        //this section is reduntant because there is TestUtils class and beforeMethod and afterMethod, but I wanted to show how i improved over time and how I learned to use the TestUtils class to make my code more DRY and efficient, so I left it in for reference
-
+        // Use the class-level driver and wait initialized in @BeforeMethod
         By boxLocator = By.id("dynamic-box");
 
         // Show Element
@@ -60,15 +54,15 @@ public class DynamicElements {
         WebElement toggleButton = driver.findElement(By.id("toggle-element-btn"));
 
         // first toggle
-        boolean currentlyVisible = driver.findElements(boxLocator).isEmpty() && driver.findElement(boxLocator).isDisplayed();
-        // size() > 0 shows that the element exists in the DOM, "&&" returns true if both conditions are true, false otherwise
+        // Correct existence/visibility check: ensure element is present and displayed
+        boolean currentlyVisible = !driver.findElements(boxLocator).isEmpty() && driver.findElement(boxLocator).isDisplayed();
         toggleButton.click();
         if (currentlyVisible) {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(boxLocator));
         } else {
             wait.until(ExpectedConditions.visibilityOfElementLocated(boxLocator));
         }
-        boolean nowVisible = driver.findElements(boxLocator).isEmpty() && driver.findElement(boxLocator).isDisplayed();
+        boolean nowVisible = !driver.findElements(boxLocator).isEmpty() && driver.findElement(boxLocator).isDisplayed();
         System.out.println("Element is " + (nowVisible ? "shown" : "hidden") + " after first toggle");
 
         // second toggle
@@ -79,11 +73,8 @@ public class DynamicElements {
         } else {
             wait.until(ExpectedConditions.visibilityOfElementLocated(boxLocator));
         }
-        nowVisible = driver.findElements(boxLocator).isEmpty() && driver.findElement(boxLocator).isDisplayed();
+        nowVisible = !driver.findElements(boxLocator).isEmpty() && driver.findElement(boxLocator).isDisplayed();
         System.out.println("Element is " + (nowVisible ? "shown" : "hidden") + " after second toggle");
-        // nowVisible ? is a ternary operator that returns "shown" if nowVisible is true, and "hidden" if nowVisible is false
-        // there are safer ways to check if an element is visible, but this is a simple way to do it just for experience
-
     }
 
     @Test
