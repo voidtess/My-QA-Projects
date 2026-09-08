@@ -54,6 +54,21 @@ If you don't want to install anything locally, run tests using GitHub Actions (n
 
 If you'd rather run tests locally without installing Maven, Docker can be used (requires Docker installed). I can add a Dockerfile and a small run script if you want.
 
+## Triggering CI from your machine using GitHub CLI
+Two helper scripts are included in /scripts to dispatch the CI workflow using GitHub CLI (gh). Install the GitHub CLI and authenticate once with `gh auth login`, then run either script:
+
+PowerShell (Windows):
+
+  .\scripts\trigger-workflow.ps1 -Branch main
+
+Bash (Linux/macOS or WSL):
+
+  ./scripts/trigger-workflow.sh main
+
+The scripts default to repo voidtess/My-QA-Projects and workflow maven.yml. To change, pass branch/workflow/repo as arguments.
+
+If you prefer a token-based curl approach instead of gh, create a Personal Access Token (PAT) and I can provide a short curl script.
+
 ## Contact
 Repository owner: voidtess
 
