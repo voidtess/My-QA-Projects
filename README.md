@@ -5,7 +5,7 @@ Automated UI interaction tests (Selenium + TestNG) for learning and demo purpose
 ## Summary
 This Maven-based Java project contains UI tests that exercise common web interactions (alerts, dropdowns, drag-and-drop, file upload, iframes, tables, etc.). It is intended as a personal test automation collection and a starting point for a QA automation portfolio.
 
-<img width="400" height="225" alt="Дизайн без названия(1)" src="https://github.com/user-attachments/assets/31d488c9-db4d-4538-b81c-5c4e38bf7e67" />
+<img width="800" height="450" alt="gif" src="https://github.com/user-attachments/assets/cdd42cda-5380-4aa9-9479-ed99038b50e4" />
 
 ## Prerequisites
 - JDK 26
