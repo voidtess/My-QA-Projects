@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
@@ -63,7 +64,7 @@ public class Dropdown {
 
     @Test
     public void radioButtons() {
-        WebDriver driver = new FirefoxDriver();
+        WebDriver driver = new ChromeDriver();
         File website = new File("src/test/resources/AutoProjectFinal/index.html");
         driver.get(website.toURI().toString());
         driver.manage().window().maximize();
