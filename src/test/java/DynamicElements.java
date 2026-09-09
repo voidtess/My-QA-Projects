@@ -137,6 +137,7 @@ public class DynamicElements {
 
     @Test
     public void changingText() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         WebElement button = driver.findElement(By.id("change-text-btn"));
         By textLocator = By.id("dynamic-text-element");
 
