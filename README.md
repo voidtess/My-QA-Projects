@@ -26,7 +26,7 @@ If your tests require a specific driver, ensure the driver executable (chromedri
 
 ## Project structure
 - pom.xml — Maven configuration and dependencies
-- src/test/java — Test classes (Alerts, DragAndDrop, Dropdown, DynamicElements, FileUpload, Iframe(s), Tables, TestUtils)
+- src/test/java — Test classes (Alerts, DragAndDrop, Dropdown, DynamicElements, FileUpload, Iframe(s), Tables, AutomationUtils)
 - src/test/resources — test fixtures and sample HTML pages
 
 ## Committing & sharing

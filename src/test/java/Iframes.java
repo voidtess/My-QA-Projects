@@ -14,8 +14,8 @@ public class Iframes {
 
     @BeforeMethod
     public void setup() {
-        driver = TestUtils.start("src/test/resources/AutoProjectFinal/index.html");
-        TestUtils.clickLinkByText(driver, "iFrame");
+        driver = AutomationUtils.start("src/test/resources/AutoProjectFinal/index.html");
+        AutomationUtils.clickLinkByText(driver, "iFrame");
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 

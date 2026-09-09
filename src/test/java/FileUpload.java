@@ -1,6 +1,5 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -18,8 +17,8 @@ public class FileUpload {
 
     @BeforeMethod
     public void setup() {
-        driver = TestUtils.start("src/test/resources/AutoProjectFinal/index.html");
-        TestUtils.clickLinkByText(driver, "File Upload");
+        driver = AutomationUtils.start("src/test/resources/AutoProjectFinal/index.html");
+        AutomationUtils.clickLinkByText(driver, "File Upload");
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         filePath1 = new File("src/test/resources/test.png").getAbsolutePath(); // get absolute path of the test.png for compatibility and anonymity
         filePath2 = new File("src/test/resources/test2.txt").getAbsolutePath();
