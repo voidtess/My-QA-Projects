@@ -13,7 +13,8 @@ This Maven-based Java project contains UI tests that exercise common web interac
 - A modern browser (Chrome/Edge/Firefox) and the corresponding WebDriver on PATH, or use a driver manager (e.g. WebDriverManager)
 
 ## Quick start
-1. Open the project in IntelliJ IDEA.
+1. Open the project in IntelliJ IDEA or cd into the directory of project
+
 2. Build and run all tests:
 
    mvn test
