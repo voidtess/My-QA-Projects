@@ -19,7 +19,6 @@ public class Dropdown {
     @BeforeMethod
     public void setup() {
         driver = AutomationUtils.start("src/test/resources/AutoProjectFinal/index.html");
-        driver.manage().window().maximize();
     }
 
     @AfterMethod
@@ -64,10 +63,6 @@ public class Dropdown {
 
     @Test
     public void radioButtons() {
-        WebDriver driver = new ChromeDriver();
-        File website = new File("src/test/resources/AutoProjectFinal/index.html");
-        driver.get(website.toURI().toString());
-        driver.manage().window().maximize();
         driver.findElement(By.partialLinkText("Checkboxes")).click();
 
         WebElement termsCheckbox = driver.findElement(By.cssSelector("#terms-checkbox"));
